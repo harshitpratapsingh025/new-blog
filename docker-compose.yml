@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  # newblog:
+  #   image: newblog
+  #   build:
+  #     context: .
+  #     dockerfile: ./Dockerfile
+  #   environment:
+  #     NODE_ENV: production
+  #   ports:
+  #     - 3000:3000
+  #   volumes:
+  #     - ./src:/usr/src/app/src
+  mongodb:
+    image: mongo:6.0
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+volumes:
+  mongodb:
