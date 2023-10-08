@@ -1,15 +1,18 @@
 import * as UserService from './../../controllers/userController.js';
+import * as AuthService from './../../controllers/authController.js';
 
 const queries = {
-  getAllUsers: async () => {
+  getAllUsers: async (_, __, context) => {
     return await UserService.getAllUsers();
+  },
+  getUserToken: async (_, payload) => {
+    return await AuthService.authUser(payload);
   },
 };
 
 const mutations = {
-  createUser: async (_, payload) => {
-    const res = await UserService.createNewUser(payload);
-    return res.id;
+  createUser: async (_, payload, context) => {
+    return await UserService.createNewUser(payload);
   },
 };
 

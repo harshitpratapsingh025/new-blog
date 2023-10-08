@@ -14,6 +14,7 @@ export const userType = `#graphql
         lastName: String!
         email: String!
         phone: String
+        address: String
         profileImage: String
     }
 `;
